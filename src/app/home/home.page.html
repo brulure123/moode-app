@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="psychologue">
+      <ion-icon name="paper"></ion-icon>
+      <ion-label>Psychologue</ion-label>
+    </ion-tab-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <ion-tab-button tab="journal">
+      <ion-icon name="send"></ion-icon>
+      <ion-label>Journal</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="chatbot">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label>Chatbot</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>  
+  
+
+    <ion-tab-button tab="parametres">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label>Paramètres</ion-label>
+    </ion-tab-button>  
+  </ion-tab-bar>
+</ion-tabs>

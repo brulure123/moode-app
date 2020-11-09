@@ -1,5 +1,6 @@
 import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexPage implements OnInit {
 
-  selectedIndex = 0;
+  selectedIndex = 1;
   currentPageTitle = 'Accueil';
 
   appPages = [
@@ -49,13 +50,17 @@ export class IndexPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
+    const path = window.location.pathname;
     if (path !== undefined) {
+      console.log(path);
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
 
+  navigateToAuthPage(){
+    this.router.navigate(['/authentification']);
+  }
 }

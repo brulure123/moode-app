@@ -9,7 +9,7 @@ const routes: Routes = [
     component: IndexPage,
     children: [
       {
-        path: '',
+        path: 'accueil',
         loadChildren: () => import('../pages/accueil/accueil.module').then(m => m.AccueilPageModule)
       },
       {
@@ -36,6 +36,11 @@ const routes: Routes = [
         path: 'probleme',
         loadChildren: () => import('../pages/signaler-un-probleme/signaler-un-probleme.module').then(m => m.SignalerUnProblemePageModule)
       },
+      {
+        path: '',
+        redirectTo: '/accueil',
+        pathMatch: 'full'
+      }
     ]
   }
 ];

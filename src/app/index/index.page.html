@@ -6,8 +6,11 @@
       <ion-content>
 
         <ion-list id="inbox-list">
-          <ion-list-header>cccInbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header>
+            <ion-button (click)="navigateToAuthPage()">Se connecter</ion-button>
+            <ion-note>(0_0) 
+            </ion-note>
+          </ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
