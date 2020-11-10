@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PandoratBot: {
+    host: 'api.pandorabots.com',
+    app_id: 'un3292d53e',
+    botname: 'moode',
+    user_key : 'c4b73e659a5d21ed6e2f26b494d3c244',
+    protocol: "https"
+  }
 };
 
 /*

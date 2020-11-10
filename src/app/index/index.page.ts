@@ -1,3 +1,4 @@
+import { PandorabotApiService } from './../services/pandorabot-api.service';
 import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -50,7 +51,7 @@ export class IndexPage implements OnInit {
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private pbs: PandorabotApiService) { }
 
   ngOnInit() {
     const path = window.location.pathname;
@@ -60,7 +61,8 @@ export class IndexPage implements OnInit {
     }
   }
 
-  navigateToAuthPage(){
-    this.router.navigate(['/authentification']);
+  doTalk(pattern: string){
+    const res = this.pbs.talk(pattern).subscribe();
+    console.log(res);
   }
 }
