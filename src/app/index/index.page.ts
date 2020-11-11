@@ -51,7 +51,7 @@ export class IndexPage implements OnInit {
     }
   ];
 
-  constructor(private router: Router, private pbs: PandorabotApiService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const path = window.location.pathname;
@@ -61,8 +61,8 @@ export class IndexPage implements OnInit {
     }
   }
 
-  doTalk(pattern: string){
-    const res = this.pbs.talk(pattern).subscribe();
-    console.log(res);
+  navigateToAuhtPage(){
+    this.router.navigate(['/authentification']);
   }
+
 }
