@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Article } from './../../pages/accueil/accueil.page';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-listes-articles',
   templateUrl: './listes-articles.component.html',
   styleUrls: ['./listes-articles.component.scss'],
 })
-export class ListesArticlesComponent implements OnInit {
+export class ListesArticlesComponent implements OnInit{
 
-  constructor() { }
+  @Input() articles: Article[];
 
-  ngOnInit() {}
+  constructor() {
+  }
+
+  ngOnInit() { }
 
 }
