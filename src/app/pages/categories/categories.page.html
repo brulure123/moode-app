@@ -6,6 +6,11 @@
     <ion-title>Categories</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+<ion-content class="card-background-page">
+  <ion-card *ngFor="let categorie of categories" routerLink="/">
+    <img src="../../../assets/icon/fb-favicon.jpg" />
+    <div class="card-title"> {{ categorie.designation }}</div>
+    <div class="card-subtitle">{{ categories.length}}</div>
+  </ion-card>
 </ion-content>
