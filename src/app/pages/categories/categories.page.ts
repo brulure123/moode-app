@@ -13,8 +13,8 @@ export class CategoriesPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.categories.push(new Categorie('idsf', 'Confiance en soi', 'sdfsdf', '../../../assets/img/ai-bot.jpeg'));
-    this.categories.push(new Categorie('idsf', 'Estime de soi', 'sdfsdf', '../../../assets/icon/fb-favicon.jpg'));
-    this.categories.push(new Categorie('idsf', 'Dépression', 'sdfsdf', '../../../assets/icon/google-favicon-ok.png'));
+    this.categories.push(new Categorie('idsf', 'Confiance en soi', 'sdfsdf', '../../../assets/img/ai-bot.jpeg', null));
+    this.categories.push(new Categorie('idsf', 'Estime de soi', 'sdfsdf', '../../../assets/icon/fb-favicon.jpg', null));
+    this.categories.push(new Categorie('idsf', 'Dépression', 'sdfsdf', '../../../assets/icon/google-favicon-ok.png', null));
   }
 }
