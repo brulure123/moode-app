@@ -1,3 +1,4 @@
+import { Categorie } from './../../models/categorie';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,19 +13,8 @@ export class CategoriesPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.categories = [
-      new Categorie(1, 'Confiance en soi','',''),
-      new Categorie(2, 'Estime de soi','',''),
-      new Categorie(3, 'Depression','','')
-    ];
+    this.categories.push(new Categorie('idsf', 'Confiance en soi', 'sdfsdf', '../../../assets/img/ai-bot.jpeg'));
+    this.categories.push(new Categorie('idsf', 'Estime de soi', 'sdfsdf', '../../../assets/icon/fb-favicon.jpg'));
+    this.categories.push(new Categorie('idsf', 'Dépression', 'sdfsdf', '../../../assets/icon/google-favicon-ok.png'));
   }
-}
-
-export class Categorie {
-  constructor(
-    public id: number,
-    public designation: string,
-    public imgSrc: string,
-    public description: string,
-  ){}
 }

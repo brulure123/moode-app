@@ -1,5 +1,4 @@
-import { FormsModule } from '@angular/forms';
-import { MbscModule } from '@mobiscroll/angular';
+import { environment } from './../environments/environment';
 import { PandorabotApiService } from './services/pandorabot-api.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule,
+    IonicModule.forRoot(),
+    HttpClientModule,
+    AppRoutingModule,
+    ],
   providers: [
     StatusBar,
     SplashScreen,

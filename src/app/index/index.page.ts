@@ -1,7 +1,4 @@
-import { PandorabotApiService } from './../services/pandorabot-api.service';
-import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -16,53 +13,47 @@ export class IndexPage implements OnInit {
   appPages = [
     {
       title: 'Accueil',
-      url: '',
+      url: '/accueil',
       icon: 'home'
     },
     {
       title: 'Categories',
-      url: 'categories',
+      url: '/categories',
       icon: 'folder'
     },
     {
       title: 'Notifications',
-      url: 'notif',
+      url: '/notif',
       icon: 'notifications'
     },
     {
       title: 'Réglages',
-      url: 'reglages',
+      url: '/reglages',
       icon: 'settings'
     },
     {
       title: 'Qui Sommes Nous ?',
-      url: 'apropos',
+      url: '/apropos',
       icon: 'people-circle'
     },
     {
       title: 'Contacter-nous',
-      url: 'contact',
+      url: '/contact',
       icon: 'paper-plane'
     },
     {
       title: 'Signaler un problème',
-      url: 'probleme',
+      url: '/probleme',
       icon: 'bug'
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    const path = window.location.pathname;
+    const path = window.location.pathname.split('/')[1];
     if (path !== undefined) {
-      console.log(path);
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
-
-  navigateToAuhtPage(){
-    this.router.navigate(['/authentification']);
-  }
-
 }

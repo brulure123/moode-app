@@ -1,21 +1,14 @@
-ion-list {
-    margin-left: -7%;
-    margin-right: -7%;
+ion-item{
+    --padding-start: 5px;
+    --padding-end: 0px;
+    --margin-start:0px;
+}
 
-    ion-item-header{
-        text-align: center;
-    }
-
-    ion-item{
-        ion-card{
-
-            ion-card-title{}
-
-            .img{}
-
-            ion-card-content{}
-
-            div {}
-        }
-    }
+ion-item ion-card {
+    margin-left:0px;
+    margin-top:0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    padding-right: 0px;
+    padding-left: 0%;
 }

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,8 +9,8 @@
 
 <ion-content class="card-background-page">
   <ion-card *ngFor="let categorie of categories" routerLink="/">
-    <img src="../../../assets/icon/fb-favicon.jpg" />
+    <img [src]="categorie.imgSrc" />
     <div class="card-title"> {{ categorie.designation }}</div>
-    <div class="card-subtitle">{{ categories.length}}</div>
+    <div class="card-subtitle">{{ categorie.articles.length}}</div>
   </ion-card>
 </ion-content>

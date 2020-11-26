@@ -1,4 +1,5 @@
-import { Article } from './../../pages/accueil/accueil.page';
+import { Article } from './../../models/article';
+
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
