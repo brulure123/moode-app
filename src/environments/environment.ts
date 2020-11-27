@@ -12,7 +12,7 @@ export const environment = {
     protocol: 'https'
   },
   firebaseConfig: {
-    piKey: 'AIzaSyBl3W5C4SbJcEDNOf3blcxsKuZ_PYovAPY',
+    apiKey: 'AIzaSyBl3W5C4SbJcEDNOf3blcxsKuZ_PYovAPY',
     authDomain: 'moode-db.firebaseapp.com',
     databaseURL: 'https://moode-db.firebaseio.com',
     projectId: 'moode-db',

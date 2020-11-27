@@ -9,41 +9,64 @@
     <h1>Vous n'avez pas de compte?</h1>
     <p>Creez votre compte.</p>
   </ion-text>
-  <div class="inputField">
-    <ion-item>
-      <ion-label position="floating" type="email">Adresse email</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" type="password">Mot de passe</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" type="password">Conf mot de passe</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="actions">
-    <ion-button class="signup-btn" expand="block">S'enregistrer</ion-button>
-      <div class="separator">
-        <span>ou</span>
-        <span class="line left"></span>
-        <span class="line right"></span>
+
+  <form class="form" [formGroup]="validationsForm" (ngSubmit)="signUpWithEmail(validationsForm.value)">
+    <div class="inputField">
+      <ion-item>
+        <ion-label position="floating" type="email">Adresse email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="error-message"
+            *ngIf="validationsForm.get('email').hasError(validation.type) && (validationsForm.get('email').dirty || validationsForm.get('email').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
       </div>
-    <div class="login-buttons">
-      <ion-button>
-        <ion-avatar>
-          <img src="../../../assets/icon/fb-favicon.jpg">
-        </ion-avatar>
-        <ion-label>Facebook</ion-label>
-      </ion-button>
-      <ion-button>
-        <ion-avatar>
-          <img src="../../../assets/icon/google-favicon-ok.png">
-        </ion-avatar>
-        <ion-label>Google</ion-label>
-      </ion-button>
+
+      <ion-item>
+        <ion-label position="floating" type="password">Mot de passe</ion-label>
+        <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="error-message"
+            *ngIf="validationsForm.get('password').hasError(validation.type) && (validationsForm.get('password').dirty || validationsForm.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" type="password">Conf mot de passe</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
     </div>
-    <p class="login">Avez vous déjà un compte? <a routerLink="/authentification">Connectez-vous</a></p>
-  </div>
+
+    <div class="actions">
+      <ion-button class="signup-btn" type="submit" expand="block" [disabled]="!validationsForm.valid">S'enregistrer</ion-button>
+        <div class="separator">
+          <span>ou</span>
+          <span class="line left"></span>
+          <span class="line right"></span>
+        </div>
+      <div class="login-buttons">
+        <ion-button>
+          <ion-avatar>
+            <img src="../../../assets/icon/fb-favicon.jpg">
+          </ion-avatar>
+          <ion-label>Facebook</ion-label>
+        </ion-button>
+        <ion-button>
+          <ion-avatar>
+            <img src="../../../assets/icon/google-favicon-ok.png">
+          </ion-avatar>
+          <ion-label>Google</ion-label>
+        </ion-button>
+      </div>
+      <p class="login">Avez vous déjà un compte? <a routerLink="/authentification">Connectez-vous</a></p>
+    </div>
+
+  </form>
 </ion-content>

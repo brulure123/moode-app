@@ -1,5 +1,7 @@
-export interface Psychologue {}
-
-export interface Client {}
-
-export interface Administrateur {}
+export interface Client {
+    uid: string;
+    email: string;
+    displayName: string;
+    photoURL: string;
+    emailVerified: boolean;
+}
