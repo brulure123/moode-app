@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Psychologue</ion-title>
+  <ion-toolbar class="ion-text-center" color="primary">
+    <ion-title>Moode  [o_o]</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1>Psychologue</h1>
+  <ion-label><h1>Trouver un psychologue à proximité de chez vous</h1></ion-label>
+  <ion-list lines="inset">
+    <ion-list-header>Liste des psychologues</ion-list-header>
+    <app-item-pscyhologue [psychologues] = "psychologues"></app-item-pscyhologue>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-footer>

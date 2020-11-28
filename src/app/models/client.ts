@@ -1,4 +1,4 @@
-export interface Client {
+export class Client {
     uid: string;
     email: string;
     displayName: string;

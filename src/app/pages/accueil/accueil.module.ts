@@ -1,4 +1,4 @@
-import { ListesArticlesComponent } from './../../components/listes-articles/listes-articles.component';
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,8 +14,9 @@ import { AccueilPage } from './accueil.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     AccueilPageRoutingModule
   ],
-  declarations: [AccueilPage, ListesArticlesComponent]
+  declarations: [AccueilPage]
 })
 export class AccueilPageModule {}

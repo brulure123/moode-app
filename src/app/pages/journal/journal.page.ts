@@ -46,7 +46,7 @@ export class JournalPage implements OnInit {
           }
         },
         {
-          text: 'Ok',
+          text: 'Valider',
           handler: (alertData) => {
             if (alertData.object !== '' && alertData.date !== '' && alertData.details !== ''){
               this.journals.push(alertData);
