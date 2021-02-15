@@ -1,6 +1,6 @@
-import { AuthentificationService } from './services/authentification.service';
+import { AuthentificationService } from './services/authentification/authentification.service';
 import { environment } from './../environments/environment';
-import { PandorabotApiService } from './services/pandorabot-api.service';
+import { PandorabotApiService } from './services/pandorabot/pandorabot-api.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';

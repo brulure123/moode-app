@@ -13,5 +13,4 @@ export class ItemPscyhologueComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
 }

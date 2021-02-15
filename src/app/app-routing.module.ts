@@ -9,18 +9,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'authentification',
-    loadChildren: () => import('./pages/authentification/authentification.module').then(m => m.AuthentificationPageModule)
-  },
-  {
-    path: 'enregistrement',
-    loadChildren: () => import('./pages/enregistrement/enregistrement.module').then( m => m.EnregistrementPageModule)
-  },
-  {
-    path: 'recover',
-    loadChildren: () => import('./pages/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
   }
 ];
 

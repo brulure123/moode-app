@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "moode-app",
+  "appName": "Moode",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

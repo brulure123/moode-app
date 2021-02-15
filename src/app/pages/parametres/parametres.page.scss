@@ -2,7 +2,7 @@ ion-content {
     --background: rgb(213, 208, 223);
 }
 
-div {
+.entete {
     text-align: center;
     height: 30%;
     padding-top: 15%;
@@ -16,4 +16,8 @@ div {
 .subtitle {
     font-size: large;
     color: darkgray;
+}
+
+ion-item-group {
+    padding-bottom: 6%;
 }

@@ -6,6 +6,89 @@
     <ion-title>Contacter Nous</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 
+  <ion-card color="primary">
+    <ion-card-title>
+      <ion-title>Laisser nous un message</ion-title>
+    </ion-card-title>
+    <ion-card-content class="ion-text-justify">
+      <ion-text>Dites nous ce que vous pensez de notre application.</ion-text>
+      <ion-text>Toutes vos suggestion et feedback sont très important pour nous</ion-text>
+      <ion-text>Si vous voulez nous contacter ne vous genez pas du tout, on serait très content de vous aider</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <form class="form" [formGroup]="validationsForm" (ngSubmit)="save(validationsForm.value)">
+    <div class="inputField">
+      <ion-item>
+        <ion-label position="floating" type="text">Nom</ion-label>
+        <ion-input type="text" formControlName="nom" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.nom">
+          <div class="error-message"
+            *ngIf="validationsForm.get('nom').hasError(validation.type) && (validationsForm.get('nom').dirty || validationsForm.get('nom').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" type="text">Prénom</ion-label>
+        <ion-input type="text" formControlName="prenom" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.prenom">
+          <div class="error-message"
+            *ngIf="validationsForm.get('prenom').hasError(validation.type) && (validationsForm.get('prenom').dirty || validationsForm.get('prenom').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" type="email">Adresse email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="error-message"
+            *ngIf="validationsForm.get('email').hasError(validation.type) && (validationsForm.get('email').dirty || validationsForm.get('email').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" type="text">Ecrivez votre message ici !</ion-label>
+        <ion-textarea type="textarea" formControlName="message" required></ion-textarea>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.message">
+          <div class="error-message"
+            *ngIf="validationsForm.get('message').hasError(validation.type) && (validationsForm.get('message').dirty || validationsForm.get('message').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="actions">
+      <ion-button class="signup-btn" size="large" expand="full" type="submit" [disabled]="!validationsForm.valid">Laisser votre
+        message</ion-button>
+      <label class="error-message">{{errorMessage}}</label>
+    </div>
+  </form>
 </ion-content>
+
+<ion-footer class="ion-text-center">
+  <div>
+    Zongwe Laboratories - &copy; ZedLab
+  </div>
+  <div><a href="https://www.esisalama.org">ESIS Salama</a></div>
+  <div>
+    &copy; Tous Droits Réserver 2021
+  </div>
+</ion-footer>

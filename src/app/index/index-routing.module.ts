@@ -13,28 +13,16 @@ const routes: Routes = [
         loadChildren: () => import('../pages/accueil/accueil.module').then(m => m.AccueilPageModule)
       },
       {
-        path: 'categories',
-        loadChildren: () => import('../pages/categories/categories.module').then(m => m.CategoriesPageModule)
+        path: 'authentification',
+        loadChildren: () => import('../pages/authentification/authentification.module').then(m => m.AuthentificationPageModule)
       },
       {
-        path: 'notif',
-        loadChildren: () => import('../pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+        path: 'enregistrement',
+        loadChildren: () => import('../pages/enregistrement/enregistrement.module').then( m => m.EnregistrementPageModule)
       },
       {
-        path: 'reglages',
-        loadChildren: () => import('../pages/reglages/reglages.module').then(m => m.ReglagesPageModule)
-      },
-      {
-        path: 'apropos',
-        loadChildren: () => import('../pages/qui-sommes-nous/qui-sommes-nous-routing.module').then(m => m.QuiSommesNousPageRoutingModule)
-      },
-      {
-        path: 'contact',
-        loadChildren: () => import('../pages/contacter-nous/contacter-nous.module').then(m => m.ContacterNousPageModule)
-      },
-      {
-        path: 'probleme',
-        loadChildren: () => import('../pages/signaler-un-probleme/signaler-un-probleme.module').then(m => m.SignalerUnProblemePageModule)
+        path: 'recover',
+        loadChildren: () => import('../pages/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
       },
       {
         path: '',

@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <div>
+  <div class="entete">
     <ion-text class="title">Paramètres</ion-text>
     <br><br>
     <ion-text class="subtitle">Personnaliser votre compte</ion-text>
   </div>
   
-  <ion-list>
+  <ion-item-group>
     <ion-item>
       <ion-label>Partager Moode</ion-label>
     </ion-item>
@@ -21,15 +21,24 @@
     <ion-item>
       <ion-label>Sécurité</ion-label>
     </ion-item>
+  </ion-item-group>
+  
+  <ion-item-group>
     <ion-item>
       <ion-label>Check-in time</ion-label>
     </ion-item>
+  </ion-item-group>
+  
+  <ion-item-group>
     <ion-item>
       <ion-label>Quel est votre nom</ion-label>
     </ion-item>
     <ion-item>
       <ion-label>Changer email</ion-label>
     </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
     <ion-item>
       <ion-label>Terms of service</ion-label>
     </ion-item>
@@ -39,8 +48,16 @@
     <ion-item>
       <ion-label>Licenses</ion-label>
     </ion-item>
-    <ion-item>
-      <ion-label>Version 1.0.0</ion-label>
+  </ion-item-group>
+    
+  <ion-item-group>  
+    <ion-item class="ion-text-center">
+      <ion-label color="danger">Déconnexion</ion-label>
     </ion-item>
-  </ion-list>
+  </ion-item-group>
+
+  <div class="ion-text-center" style="padding-bottom: 5%;">
+    <ion-text>Version 1.0.0</ion-text>
+  </div>
+  
 </ion-content>

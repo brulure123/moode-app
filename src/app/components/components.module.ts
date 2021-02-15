@@ -1,5 +1,7 @@
+import { StartComponent } from './start/start.component';
+import { SlidesComponent } from './slides/slides.component';
+import { LogoComponent } from './logo/logo.component';
 import { IonicModule } from '@ionic/angular';
-import { BrowserModule } from '@angular/platform-browser';
 import { ListesArticlesComponent } from './listes-articles/listes-articles.component';
 import { ItemPscyhologueComponent } from './item-pscyhologue/item-pscyhologue.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +10,10 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     ItemPscyhologueComponent,
-    ListesArticlesComponent
+    ListesArticlesComponent,
+    LogoComponent,
+    SlidesComponent,
+    StartComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +21,10 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [
     ItemPscyhologueComponent,
-    ListesArticlesComponent
+    ListesArticlesComponent,
+    LogoComponent,
+    SlidesComponent,
+    StartComponent
   ]
 })
 export class ComponentsModule { }

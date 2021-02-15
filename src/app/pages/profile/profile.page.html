@@ -1,9 +1,50 @@
-<ion-header>
-  <ion-toolbar class="ion-text-center" color="primary">
-    <ion-title>Moode [o_o]</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  
+  <div class="entete">
+    <h2>Zongwe Benoni</h2>
+
+    <div class="space-between">
+      <div class="followings">
+        <ion-badge color="secondary">36</ion-badge>
+        <p>Abonnés</p>
+      </div>
+      <div class="followings">
+        <ion-badge color="secondary">102</ion-badge>
+        <p>Abonnements</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="border-blue">
+      <div class="border-white">
+        <div class="img-box">
+          <img src="../../../assets/icon/google-favicon-ok.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+
+      <ion-card-content>
+        <canvas #lineCanvas style="position:relative; height:20vh; width:40vw">
+        </canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+         Doughnut Chart
+      </ion-card-header>
+
+      <ion-card-content>
+        <canvas #doughnutCanvas style="position:relative; height:20vh; width:40vw">
+        </canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

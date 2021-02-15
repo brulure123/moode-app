@@ -4,11 +4,13 @@ ion-item{
     --margin-start:0px;
 }
 
-ion-item ion-card {
-    margin-left:0px;
-    margin-top:0px;
-    margin-right: 0px;
-    border-radius: 0px;
-    padding-right: 0px;
+ion-card {
+    margin-left:0%;
+    margin-right: 0%;
+    border-radius: 0%;
+}
+
+ion-card-content {
+    padding-right: 0%;
     padding-left: 0%;
 }

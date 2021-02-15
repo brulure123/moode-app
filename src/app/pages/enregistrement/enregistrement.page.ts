@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from 'src/app/services/authentification.service';
+import { AuthentificationService } from 'src/app/services/authentification/authentification.service';
 
 @Component({
   selector: 'app-enregistrement',
