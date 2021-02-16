@@ -1,4 +1,3 @@
-import { Article } from './../../models/article';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
