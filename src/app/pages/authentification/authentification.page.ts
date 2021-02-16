@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { AuthentificationService } from './../../services/authentification/authentification.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -25,6 +26,7 @@ export class AuthentificationPage implements OnInit {
   };
 
   constructor(
+    private alertController: AlertController,
     public router: Router,
     public authService: AuthentificationService,
     public formBuilder: FormBuilder
@@ -44,19 +46,31 @@ export class AuthentificationPage implements OnInit {
   }
 
   signInWithEmail(value) {
-    this.authService.loginUser(value)
+    this.authService.loginWithEmailAndPassword(value)
     .then(user => {
       this.errorMessage = '';
       // navigate to user profile
-      this.redirectLoggedUserToProfilePage();
+      this.router.navigate(['/home/chatbot']);
     })
     .catch(error => {
       this.errorMessage = error.message;
+      this.presentAlert(this.errorMessage);
     });
   }
 
-  // Redirection vers la page d'accueil de l'utilisateur connecté.
-  redirectLoggedUserToProfilePage() {
-    this.router.navigate(['/home/chatbot']);
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Echec d\'authentification',
+      message: message,
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          console.log('Réinitialisation du formulaire.');
+        }
+      }]
+    });
+
+    await alert.present();
   }
 }

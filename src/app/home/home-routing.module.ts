@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/auth/auth.guard';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
@@ -9,23 +10,33 @@ const routes: Routes = [
     children: [
       {
         path: 'chatbot',
-        loadChildren: () => import('../pages/chatbot/chatbot.module').then( m => m.ChatbotPageModule)
+        loadChildren: () => import('../pages/chatbot/chatbot.module').then( m => m.ChatbotPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'psychologue',
-        loadChildren: () => import('../pages/psychologue/psychologue.module').then( m => m.PsychologuePageModule)
+        loadChildren: () => import('../pages/psychologue/psychologue.module').then( m => m.PsychologuePageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'journal',
-        loadChildren: () => import('../pages/journal/journal.module').then( m => m.JournalPageModule)
+        loadChildren: () => import('../pages/journal/journal.module').then( m => m.JournalPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile',
-        loadChildren: () => import('../pages/profile/profile.module').then( m => m.ProfilePageModule)
+        loadChildren: () => import('../pages/profile/profile.module').then( m => m.ProfilePageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'parametres',
-        loadChildren: () => import('../pages/parametres/parametres.module').then( m => m.ParametresPageModule)
+        loadChildren: () => import('../pages/parametres/parametres.module').then( m => m.ParametresPageModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'chatbot'
       }
     ]
   }

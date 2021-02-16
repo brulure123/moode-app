@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -26,6 +27,7 @@ export class EnregistrementPage implements OnInit {
   };
 
   constructor(
+    private alertController: AlertController,
     public router: Router,
     public authService: AuthentificationService,
     public formBuilder: FormBuilder
@@ -45,21 +47,41 @@ export class EnregistrementPage implements OnInit {
   }
 
   signUpWithEmail(value) {
-    this.authService.registerUser(value)
+    this.authService.registerWithEmailAndPassword(value)
     .then(user => {
       this.errorMessage = '';
       this.successMessage = 'Votre compte a été créer avec succès';
-      console.log (this.successMessage);
-      // navigate to user profile
+      this.presentAlertConfirm(this.successMessage);
+      
     })
     .catch(error => {
       this.errorMessage = error.message;
       this.successMessage = '';
+      this.presentAlertConfirm(this.errorMessage);
     });
   }
 
-
-  redirectLoggedUserToProfilePage() {
-    this.router.navigate(['/authentification']);
+  async presentAlertConfirm(message: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirmation !!!',
+      message: message,
+      buttons: [
+        {
+          text: 'Reéssayer',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log("Réinitialisation du formulaire");
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.router.navigate(['/authentification']);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }

@@ -1,3 +1,4 @@
+import { AuthentificationService } from 'src/app/services/authentification/authentification.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParametresPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthentificationService) { }
 
   ngOnInit() {
+  }
+
+  deconnexion(): void {
+    this.authService.logoutUser();
   }
 
 }
