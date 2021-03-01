@@ -1,22 +1,20 @@
 <ion-header>
   <ion-toolbar class="ion-text-center" color="primary">
-    <ion-title>Moode  [o_o]</ion-title>
+    <ion-title>Moode [o_o]</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div>
-    <ion-item lines="none" *ngFor="let message of messages; let i = index;">
-      <ion-badge *ngIf="i % 2 == 0" color="primary" margin="10px">{{message}}</ion-badge>
-      <ion-badge *ngIf="i % 2 != 0" slot="end" color="success" margin="10px">{{message}}</ion-badge>
-    </ion-item>
-  </div>
-</ion-content>
+<ion-content>
+  <ion-item lines="none" class="ion-no-padding" *ngFor="let message of messages; let i = index;">
+    <ion-card class="bot" *ngIf="i % 2 == 0" color="primary">
+      <ion-card-content>{{message}}</ion-card-content>
+    </ion-card>
+    <ion-card class="human" *ngIf="i % 2 != 0" slot="end" color="success">
+      <ion-card-content>{{message}}</ion-card-content>
+    </ion-card>
+  </ion-item>
 
-<ion-content class="responses">
-  <div class="actions">
-    <ion-button color="success" shape="round" expand="block" *ngFor="let res of responses; let i = index;" fill="outline">{{res}}</ion-button>
-  </div>
+  <div id="responses" class="actions ion-text-center"></div>
 </ion-content>
 
 <ion-footer>

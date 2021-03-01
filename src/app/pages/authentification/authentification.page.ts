@@ -1,6 +1,6 @@
 import { AlertController } from '@ionic/angular';
 import { AuthentificationService } from './../../services/authentification/authentification.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -47,9 +47,8 @@ export class AuthentificationPage implements OnInit {
 
   signInWithEmail(value) {
     this.authService.loginWithEmailAndPassword(value)
-    .then(user => {
+    .then(() => {
       this.errorMessage = '';
-      // navigate to user profile
       this.router.navigate(['/home/chatbot']);
     })
     .catch(error => {
@@ -70,7 +69,6 @@ export class AuthentificationPage implements OnInit {
         }
       }]
     });
-
     await alert.present();
   }
 }

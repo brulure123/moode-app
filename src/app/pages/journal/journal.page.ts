@@ -1,6 +1,10 @@
-import { Journal } from './../../models/journal';
+import { DatetimeService } from './../../services/datetime/datetime.service';
+import { JournalStorageService } from './../../services/journal-storage/journal-storage.service';
+import { JournalInterface } from './../../models/journal';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data/data.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-journal',
@@ -9,11 +13,29 @@ import { AlertController } from '@ionic/angular';
 })
 export class JournalPage implements OnInit {
 
-  journals: Journal[] = [];
+  journals: JournalInterface[];
+  subscription: SubscriptionLike;
 
-  constructor(public alertController: AlertController) { }
+  constructor(
+    private alertController: AlertController,
+    private dataService: DataService,
+    private journalService: JournalStorageService,
+    private datetimeService: DatetimeService
+    ) { }
 
   ngOnInit() {
+    this.subscription = this.dataService.getJournalsSubscription()
+      .subscribe({
+        next: (journal: JournalInterface[]) => {
+          if(journal != null){
+            this.journals = journal;
+          } else {
+            this.journals = [];
+          }
+        },
+        error: (err) => {},
+        complete: () => {}
+      })
   }
 
   async presentAlert() {
@@ -47,9 +69,12 @@ export class JournalPage implements OnInit {
         },
         {
           text: 'Valider',
-          handler: (alertData) => {
-            if (alertData.object !== '' && alertData.date !== '' && alertData.details !== ''){
-              this.journals.push(alertData);
+          handler: (alertData: JournalInterface) => {
+            if (alertData.object !== '' && alertData.details !== '' && (alertData.date)){
+              alertData.uid = this.datetimeService.getCurrentDateTime().getMilliseconds().toString();
+              this.journalService.createJournal(alertData).then(() => {
+                console.log("Journal Created With Success");
+              });
             }
           }
         }
