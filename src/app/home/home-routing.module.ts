@@ -9,18 +9,13 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path: 'chatbot',
-        loadChildren: () => import('../pages/chatbot/chatbot.module').then( m => m.ChatbotPageModule),
-        canActivate: [AuthGuard]
-      },
-      {
         path: 'catalogue',
         loadChildren: () => import("../pages/catalogue/catalogue.module").then(m => m.CataloguePageModule),
         canActivate: [AuthGuard]
       },
       {
-        path: 'psychologue',
-        loadChildren: () => import('../pages/psychologue/psychologue.module').then( m => m.PsychologuePageModule),
+        path: 'chatbot',
+        loadChildren: () => import('../pages/chatbot/chatbot.module').then( m => m.ChatbotPageModule),
         canActivate: [AuthGuard]
       },
       {
@@ -31,6 +26,11 @@ const routes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('../pages/profile/profile.module').then( m => m.ProfilePageModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'psychologue',
+        loadChildren: () => import('../pages/psychologue/psychologue.module').then( m => m.PsychologuePageModule),
         canActivate: [AuthGuard]
       },
       {

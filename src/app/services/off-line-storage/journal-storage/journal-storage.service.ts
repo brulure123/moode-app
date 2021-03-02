@@ -1,7 +1,7 @@
-import { JournalInterface } from './../../models/journal';
+import { JournalInterface } from '../../../models/journal';
 import { Injectable } from '@angular/core';
-import { DataService } from '../data/data.service';
-import { DatetimeService } from '../datetime/datetime.service';
+import { DataService } from '../../data/data.service';
+import { DatetimeService } from '../../datetime/datetime.service';
 import { StorageService } from '../storage/storage.service';
 
 @Injectable({

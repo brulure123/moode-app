@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { StorageService } from './services/storage/storage.service';
+import { StorageService } from './services/off-line-storage/storage/storage.service';
 import { DatetimeService } from './services/datetime/datetime.service';
 import { StorageKeys } from './constants/constants';
 import { Router } from '@angular/router';

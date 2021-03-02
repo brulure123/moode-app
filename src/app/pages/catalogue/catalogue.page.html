@@ -1,9 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>catalogue</ion-title>
+  <ion-toolbar class="ion-text-center" color="primary">
+    <ion-title>Moode [o_o]</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content> 
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-title class="titre">Catalogue Des Discussions</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <img src="../../../assets/img/catlog.png" />
+      </ion-col>
+      <ion-col class="question">
+        <ion-text>De quoi veux-tu qu'on discute aujourd'hui ?</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid class="categorie">
+    <ion-row class="ion-text-center">
+      <ion-col *ngFor="let categorie of categories" size="6" (click)="presentModal(categorie)">
+        <img [src]="categorie.imageCategorieSrc" />
+        <ion-text>{{ categorie.titreCategorie }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

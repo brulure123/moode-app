@@ -1,7 +1,7 @@
-import { MessageInterface } from './../../models/message';
-import { StorageService } from './../storage/storage.service';
-import { DataService } from './../data/data.service';
-import { DatetimeService } from './../datetime/datetime.service';
+import { MessageInterface } from '../../../models/message';
+import { DataService } from '../../data/data.service';
+import { DatetimeService } from '../../datetime/datetime.service';
+import { StorageService } from '../storage/storage.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

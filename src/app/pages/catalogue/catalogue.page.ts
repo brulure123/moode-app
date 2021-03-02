@@ -1,4 +1,9 @@
+import { CatalogueService } from '../../services/on-line-storage/catalogue/catalogue.service';
+import { CatalogueModalComponent } from './../../components/catalogue-modal/catalogue-modal.component';
+import { CatalogueInterface } from './../../models/catalogue';
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-catalogue',
@@ -7,9 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CataloguePage implements OnInit {
 
-  constructor() { }
+  catalogue: Observable<CatalogueInterface[]>;
+  categories: CatalogueInterface[];
 
-  ngOnInit() {
+  constructor(
+    private modalController: ModalController,
+    private catalogueService: CatalogueService
+  ) { 
+    this.catalogue = this.catalogueService.getCatalogue();
+    this.catalogue.forEach((value) => {
+      if(value != null )
+        this.categories = value;
+      else
+        this.categories = [];
+    });
   }
 
+  ngOnInit() {
+    
+  }
+
+  async presentModal(categorie: CatalogueInterface) {
+    const modal = await this.modalController.create({
+      component: CatalogueModalComponent,
+      cssClass: 'my-custom-class',
+      componentProps: { 
+        'categorie': categorie 
+      }
+    });
+    return await modal.present();
+  }
 }

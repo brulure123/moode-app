@@ -1,5 +1,5 @@
 import { DatetimeService } from './../../services/datetime/datetime.service';
-import { JournalStorageService } from './../../services/journal-storage/journal-storage.service';
+import { JournalStorageService } from '../../services/off-line-storage/journal-storage/journal-storage.service';
 import { JournalInterface } from './../../models/journal';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';

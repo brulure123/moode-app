@@ -5,13 +5,15 @@ import { LogoComponent } from './logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CatalogueModalComponent } from './catalogue-modal/catalogue-modal.component';
 
 @NgModule({
   declarations: [
     LogoComponent,
     SlidesComponent,
     StartComponent,
-    ItemPscyhologueComponent
+    ItemPscyhologueComponent,
+    CatalogueModalComponent
   ],
   imports: [
     CommonModule,
