@@ -2,7 +2,7 @@ import { CatalogueService } from '../../services/on-line-storage/catalogue/catal
 import { CatalogueModalComponent } from './../../components/catalogue-modal/catalogue-modal.component';
 import { CatalogueInterface } from './../../models/catalogue';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +17,8 @@ export class CataloguePage implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private catalogueService: CatalogueService
+    private catalogueService: CatalogueService,
+    private routerOutlet: IonRouterOutlet
   ) { 
     this.catalogue = this.catalogueService.getCatalogue();
     this.catalogue.forEach((value) => {
@@ -35,7 +36,11 @@ export class CataloguePage implements OnInit {
   async presentModal(categorie: CatalogueInterface) {
     const modal = await this.modalController.create({
       component: CatalogueModalComponent,
-      cssClass: 'my-custom-class',
+      cssClass: 'modalStyle',
+      swipeToClose: true,
+      animated: true,
+      backdropDismiss: true,
+      mode: 'ios',
       componentProps: { 
         'categorie': categorie 
       }

@@ -9,6 +9,8 @@ import { Injectable } from '@angular/core';
 })
 export class MessageStorageService {
 
+  private readonly KEY = "MESSAGES";
+
   constructor(
     private datetime: DatetimeService,
     private dataService: DataService,
@@ -17,16 +19,26 @@ export class MessageStorageService {
     this.getAllMessagesFromLocal();
   }
 
-  async getAllMessagesFromLocal(): Promise<MessageInterface[]> {
-    return await this.storageService.getFromLocalStorage('key').then((messages: MessageInterface[]) => {
+  async getAllMessagesFromLocal(): Promise<void> {
+    return await this.getMessagesFromLocalStorage().then((messages: MessageInterface[]) => {
+      return this.dataService.setMessages(messages);
+    });
+  }
+
+  async createMessage(message: MessageInterface):Promise<void> {
+    return await this.saveMessageToLocal(message).then().catch();
+  }
+
+
+  async getMessagesFromLocalStorage(date?: Date): Promise<MessageInterface[]> {
+    return await this.storageService.getFromLocalStorage(this.KEY).then((messages: MessageInterface[]) => {
       return messages;
     });
   }
 
   async saveMessageToLocal(message: MessageInterface): Promise<void> {
-    const key = '';
     let messagesList: MessageInterface[] = [];
-    return this.storageService.getFromLocalStorage(key).then((messages: MessageInterface[]) => {
+    return this.storageService.getFromLocalStorage(this.KEY).then((messages: MessageInterface[]) => {
       if(messages == null) {
         messagesList.push(message);
       } else {
@@ -34,7 +46,7 @@ export class MessageStorageService {
         messagesList.push(message);
       }
     }).then(() => {
-      this.storageService.saveToLocalStorage(key, messagesList).then(() => {
+      this.storageService.saveToLocalStorage(this.KEY, messagesList).then(() => {
         this.dataService.setMessages(messagesList);
       });
     }).catch((error) => console.log(error));

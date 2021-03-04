@@ -5,15 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-item lines="none" class="ion-no-padding" *ngFor="let message of messages; let i = index;">
-    <ion-card class="bot" *ngIf="i % 2 == 0" color="primary">
-      <ion-card-content>{{message}}</ion-card-content>
-    </ion-card>
-    <ion-card class="human" *ngIf="i % 2 != 0" slot="end" color="success">
-      <ion-card-content>{{message}}</ion-card-content>
-    </ion-card>
-  </ion-item>
-
+  <div *ngFor="let message of messages; let i = index;">
+    <ion-item lines="none" class="ion-no-padding">
+      <ion-card class="human" *ngIf="message.userInput" slot="end" color="success">
+        <ion-card-content>{{message.userInput}}</ion-card-content> 
+      </ion-card>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding">
+      <ion-card class="bot" *ngIf="message.botResponse == null">
+        <ion-card-content><ion-spinner name="dots"></ion-spinner></ion-card-content>
+      </ion-card>
+      <ion-card class="bot" *ngIf="message.botResponse != null" color="primary">       
+        <ion-card-content>{{message.botResponse}}</ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+  
   <div id="responses" class="actions ion-text-center"></div>
 </ion-content>
 
@@ -24,7 +31,7 @@
         <ion-input placeholder="Parler à Moode" type="text" [(ngModel)]="messageText"></ion-input>
       </ion-col>
       <ion-col size="2" class="send-col">
-        <ion-button color="success" shape="full" (click)="sendMessage()">
+        <ion-button color="success" shape="full" (click)="doTalkByInputField()">
           <ion-icon slot="icon-only" name="send"></ion-icon>
         </ion-button>
       </ion-col>

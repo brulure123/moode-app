@@ -2,7 +2,7 @@ export interface MessageInterface {
     uid: string;
     clientId: string
     date: Date;
-    input: string;
-    response: string [];
+    userInput: string;
+    botResponse: string;
     that: string;
 }

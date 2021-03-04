@@ -2,9 +2,9 @@ export const environment = {
   production: true,
   PandoratBot: {
     host: 'api.pandorabots.com',
-    app_id: 'un3292d53e',
+    app_id: 'undf157895',
     botname: 'moode',
-    user_key : 'c4b73e659a5d21ed6e2f26b494d3c244',
+    user_key : '00110bf6e53bc6956db8033fe097f730',
     protocol: 'https'
   },
   firebaseConfig: {
