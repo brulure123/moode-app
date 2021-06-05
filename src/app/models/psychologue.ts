@@ -1,11 +1,9 @@
-export class Psychologue {
+export interface PsychologueInterface {
     id: string;
+    nom: string;
+    addresse: string;
+    numeroTelephone: string;
     email: string;
     password: string;
-
-    constructor(id: string, email: string, password: string) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
+    imageSrc: string;
 }

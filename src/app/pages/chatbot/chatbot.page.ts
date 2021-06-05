@@ -1,3 +1,4 @@
+import { MessageService } from './../../services/on-line-storage/message/message.service';
 import { DatetimeService } from './../../services/datetime/datetime.service';
 import { SubscriptionLike } from 'rxjs';
 import { DataService } from './../../services/data/data.service';
@@ -21,27 +22,31 @@ export class ChatbotPage implements OnInit {
 
   constructor(
     private pandorabotService: PandorabotApiService,
-    private messageService: MessageStorageService,
+    private messageOfflineService: MessageStorageService,
+    private messageOnlineService: MessageService,
     private dataService: DataService,
     private datetimeService: DatetimeService
   ) { }
 
   ngOnInit() {
-    this.subscription = this.dataService.getMessagesSubscription()
-      .subscribe({
-        next: (message: MessageInterface[]) => {
-          if(message != null) {
-            console.log("messages fund but not show");
-            this.messages = message;
-          }            
-          else{
-            console.log("messages not found");
-            this.messages = [];
-          }
-        }, 
-        error: (err) => {},
-        complete: () => {}
-      });
+    this.messageOfflineService.getMessagesFromLocalStorage().then((value) => {
+      if(value != null)
+        this.messages = value;
+      else this.messages = [];
+    });
+    // this.subscription = this.dataService.getMessagesSubscription()
+    //   .subscribe({
+    //     next: (message: MessageInterface[]) => {
+    //       if(message != null) {
+    //         this.messages = message;
+    //       }            
+    //       else{
+    //         this.messages = [];
+    //       }
+    //     }, 
+    //     error: (err) => {},
+    //     complete: () => {}
+    //   });
   }
 
   doTalkByInputField(): void {
@@ -76,7 +81,8 @@ export class ChatbotPage implements OnInit {
     this.messages[this.messages.length - 1].botResponse = botMessage;
     this.pandorabotResponse = aimlResponse['responses'][0].replace(botMessage, '');
     this.parsingMessage();
-    this.messageService.createMessage(this.messages[this.messages.length - 1]);
+    this.messageOfflineService.createMessage(this.messages[this.messages.length - 1]);
+    //this.messageOnlineService.createMessage(this.messages[this.messages.length - 1]);
     this.showingIonContent();
   }
 

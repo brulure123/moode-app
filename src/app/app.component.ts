@@ -36,7 +36,7 @@ export class AppComponent {
     this.storageService.getFromLocalStorage(StorageKeys.INSTALL_DATE).then((value => {
       if(value){
         this.datetimeService.installDate = value;
-        this.router.navigate(['authentification']);
+        //this.router.navigate(['authentification']);
       }else{
         this.storageService.saveToLocalStorage(StorageKeys.INSTALL_DATE, this.datetimeService.getCurrentDateTime());
       }

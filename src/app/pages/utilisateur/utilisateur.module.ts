@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PsychologuePageRoutingModule } from './psychologue-routing.module';
+import { UtilisateurPageRoutingModule } from './utilisateur-routing.module';
 
-import { PsychologuePage } from './psychologue.page';
+import { UtilisateurPage } from './utilisateur.page';
 
 @NgModule({
   imports: [
@@ -15,8 +15,8 @@ import { PsychologuePage } from './psychologue.page';
     FormsModule,
     IonicModule,
     ComponentsModule,
-    PsychologuePageRoutingModule
+    UtilisateurPageRoutingModule
   ],
-  declarations: [PsychologuePage]
+  declarations: [UtilisateurPage]
 })
-export class PsychologuePageModule {}
+export class UtilisateurPageModule {}

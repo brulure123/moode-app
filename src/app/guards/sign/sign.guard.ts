@@ -16,7 +16,7 @@ export class SignGuard implements CanActivate {
   canActivate(): boolean {
     if (this.authService.isLoggedIn) {
       this.router.navigate(['home']);
-      return false;
+      return true;
     }
     return true;
   }

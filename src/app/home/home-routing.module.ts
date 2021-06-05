@@ -24,18 +24,8 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'profile',
-        loadChildren: () => import('../pages/profile/profile.module').then( m => m.ProfilePageModule),
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'psychologue',
-        loadChildren: () => import('../pages/psychologue/psychologue.module').then( m => m.PsychologuePageModule),
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'parametres',
-        loadChildren: () => import('../pages/parametres/parametres.module').then( m => m.ParametresPageModule),
+        path: 'utilisateur',
+        loadChildren: () => import('../pages/utilisateur/utilisateur.module').then(m => m.UtilisateurPageModule),
         canActivate: [AuthGuard]
       },
       {
@@ -44,7 +34,7 @@ const routes: Routes = [
         redirectTo: 'chatbot'
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

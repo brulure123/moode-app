@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Psychologue } from 'src/app/models/psychologue';
+import { PsychologueInterface } from 'src/app/models/psychologue';
+import { CallNumber } from '@ionic-native/call-number/ngx'
 
 @Component({
   selector: 'app-item-pscyhologue',
@@ -8,9 +9,18 @@ import { Psychologue } from 'src/app/models/psychologue';
 })
 export class ItemPscyhologueComponent implements OnInit {
 
-  @Input() psychologues: Psychologue[];
+  @Input() psychologues: PsychologueInterface[];
 
-  constructor() { }
+  constructor(
+    //private callNumber: CallNumber
+  ) { }
 
   ngOnInit() {}
+
+  appeller(): void {
+    //this.callNumber.callNumber("180010101010", true)
+    //  .then(res => console.log('Launched dialer!', res))
+    //  .catch(err => console.log('Error launching dialer', err));
+  }
+
 }

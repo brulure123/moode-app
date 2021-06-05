@@ -6,6 +6,9 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogueModalComponent } from './catalogue-modal/catalogue-modal.component';
+import { PsychologueComponent } from './psychologue/psychologue.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { CatalogueModalComponent } from './catalogue-modal/catalogue-modal.compo
     SlidesComponent,
     StartComponent,
     ItemPscyhologueComponent,
-    CatalogueModalComponent
+    CatalogueModalComponent,
+    PsychologueComponent,
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +29,10 @@ import { CatalogueModalComponent } from './catalogue-modal/catalogue-modal.compo
     LogoComponent,
     SlidesComponent,
     StartComponent,
-    ItemPscyhologueComponent
+    ItemPscyhologueComponent,
+    PsychologueComponent,
+    DashboardComponent,
+    ProfileComponent
   ]
 })
 export class ComponentsModule { }
